@@ -1,0 +1,169 @@
+package com.example.PlantCatTap
+
+import android.media.AudioManager
+import android.media.MediaPlayer
+import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
+import java.io.IOException
+
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+
+    }
+    var count = 0
+
+    fun redBowl(view: View) {
+        val diceImage: ImageView = findViewById(R.id.RedBowl)
+        if ( count > 3){
+            count = 0
+        }else{
+            count++
+        }
+
+        val drawableResource = when (count){
+            1 -> R.drawable.redbowl_2
+            2 -> R.drawable.redbowl_3
+
+            else-> R.drawable.redbowl
+        }
+
+        diceImage.setImageResource(drawableResource)
+    }
+
+    var countB = 0
+
+    fun blueBowl(view: View) {
+
+        val diceImage: ImageView = findViewById(R.id.BlueBowl)
+        if ( countB > 3){
+            countB = 0
+        }else{
+            countB++
+        }
+
+
+        val drawableResource = when (countB){
+            1 -> R.drawable.bluebowl2
+            2 -> R.drawable.bluebowl3
+
+            else-> R.drawable.bluebowl
+        }
+
+        diceImage.setImageResource(drawableResource)
+
+
+    }
+
+    var countbi = 0
+
+    fun biegeBowl(view: View) {
+
+        val diceImage: ImageView = findViewById(R.id.BiegeBowl)
+        if ( countbi >2 ){
+            countbi = 0
+        }else{
+            countbi++
+        }
+
+
+        val drawableResource = when (countbi){
+            1 -> R.drawable.biege2
+            else-> R.drawable.beigebowl
+        }
+
+        diceImage.setImageResource(drawableResource)
+
+
+    }
+
+    var countP = 0
+
+    fun purpleBowl(view: View) {
+
+        val diceImage: ImageView = findViewById(R.id.PurpleBowl)
+        if ( countP > 3){
+            countP = 0
+        }else{
+            countP++
+        }
+
+
+        val drawableResource = when (countP){
+            1 -> R.drawable.purplebowl2
+            2 -> R.drawable.purplebowl3
+
+            else-> R.drawable.cedd1532_7882_41ae_bb01_d800352256bd
+        }
+
+        //R.drawable.cedd1532_7882_41ae_bb01_d800352256bd
+        diceImage.setImageResource(drawableResource)
+
+
+    }
+
+    var countY = 0
+
+    fun yellowPot(view: View) {
+
+        val diceImage: ImageView = findViewById(R.id.YellowPot)
+        if ( countY > 2){
+            countY = 0
+        }else{
+            countY++
+        }
+
+
+        val drawableResource = when (countY){
+            1 -> R.drawable.yellowpot2
+            else-> R.drawable.yellowpot
+        }
+
+        diceImage.setImageResource(drawableResource)
+
+
+    }
+
+
+    fun playSound(view: View) {
+        var url: String="https://www.youtube.com/watch?v=ycHTiTSCBR4"
+        var mediaPlayer = MediaPlayer()
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
+        if (mediaPlayer.isPlaying){
+
+            try{
+                mediaPlayer.setDataSource(url)
+                mediaPlayer.prepare()
+                mediaPlayer.start()
+            }
+            catch (e:IOException){
+                e.printStackTrace()
+            }
+        }
+        else {
+            try{
+                mediaPlayer.stop()
+                mediaPlayer.reset()
+            }
+            catch (e: IOException){
+                e.printStackTrace()
+            }
+        }
+    }
+
+
+    }
+
+
+
+
+
+    // Now get a handle to any View contained
+    // within the main layout you are using
+
